@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 // app.use(cors());
-app.use(cors({ origin: `${"https://bulkemail-vpiraisoodan-frontend.netlify.app"}` }));
+app.use(cors({ origin: `${"https://bulkemail-vpiraisoodan-frontend.netlify.app/"}` }));
 
 const MONGO_url = process.env.MONGO_DB;
 async function createconnection (){
