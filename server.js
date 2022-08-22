@@ -30,9 +30,6 @@ const client = await createconnection();
 const port = process.env.PORT || 5000;
 
 // SEND API
-app.use("/",(req,res)=>{
-  res.send('hi')
-})
 
 app.post("/send", auth,async (req, res) => {
   try {
@@ -95,6 +92,10 @@ app.post("/signup",async (req,res)=>{
  }
 
 })
+app.use("/",(req,res)=>{
+  res.send('hi')
+})
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
