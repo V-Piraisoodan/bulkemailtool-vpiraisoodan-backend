@@ -10,8 +10,8 @@ import auth from "./middleware/auth.js"
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors());
-// app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
+// app.use(cors());
+app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
 
 const MONGO_url = process.env.MONGO_DB;
 async function createconnection (){
