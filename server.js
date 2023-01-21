@@ -10,8 +10,13 @@ import auth from "./middleware/auth.js"
 dotenv.config();
 const app = express();
 app.use(express.json());
+<<<<<<< HEAD
 // app.use(cors());
 app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
+=======
+app.use(cors());
+// app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
 
 const MONGO_url = process.env.MONGO_DB;
 async function createconnection (){
@@ -31,11 +36,14 @@ const client = await createconnection();
 const port = process.env.PORT || 5000;
 
 // SEND API
+<<<<<<< HEAD
 
 app.get("/",(req,res)=>{
   res.send("hi guys")
 })
 
+=======
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
 app.post("/send", auth,async (req, res) => {
   try {
     const { fullName,email,to,url,bcc,subject,message} = req.body
@@ -72,9 +80,13 @@ app.post("/login",async (req,res)=>{
     return
   }
 })
+<<<<<<< HEAD
 app.post("/",async (req,res)=>{
   res.send("hello world")
 })
+=======
+
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
 app.post("/signup",async (req,res)=>{
   const {mail,password}= req.body;
   // console.log(typeof(username),password)
@@ -83,10 +95,22 @@ app.post("/signup",async (req,res)=>{
        .collection("users")
        .find({mail:mail})
        .toArray();
+<<<<<<< HEAD
+=======
+  // console.log(finduser[0].username)
+  // const verify = finduser[0].username
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
   if(finduser[0]){
     res.status(400).send({msg:"The user is already exists"})
     return
   }
+<<<<<<< HEAD
+=======
+  // if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(password)){
+  //   res.status(401).send({msg:"Password pattern did not match"})
+  //   return
+  // }
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
   else{
   const hashedpassword = await genpassword(password)
   // console.log("hello",password,hashedpassword)
@@ -99,10 +123,13 @@ app.post("/signup",async (req,res)=>{
  }
 
 })
+<<<<<<< HEAD
 app.use("/",(req,res)=>{
   res.send('hi')
 })
 
+=======
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
@@ -114,4 +141,9 @@ async function genpassword (password)
   const hashedpassword = await bcrypt.hash(password,salt)
   // console.log(hashedpassword)
   return hashedpassword
+<<<<<<< HEAD
 }
+=======
+}
+// genpassword();
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e

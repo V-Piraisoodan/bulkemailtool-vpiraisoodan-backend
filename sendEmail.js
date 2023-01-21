@@ -2,7 +2,11 @@ import nodemailer from 'nodemailer';
 
 const Email = (options) => {
   let transpoter = nodemailer.createTransport({
+<<<<<<< HEAD
     service: 'gmail',
+=======
+    service: 'gmail', //i use outlook
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
     auth: {
       user: process.env.USER, // email
       pass: process.env.PASSWORD, //password
@@ -25,6 +29,10 @@ const options = {
     to: `${to}`,
     subject: `${subject}`,
     bcc : `${bcc}`,
+<<<<<<< HEAD
+=======
+    // bcc : `${ans || "piraisoodanv1996@gmail.com"}`,
+>>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
     envelope : {
       from: `V.Piraisoodan <${process.env.USER}>`,
       to: `${to}`,
