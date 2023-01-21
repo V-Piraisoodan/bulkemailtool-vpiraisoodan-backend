@@ -72,7 +72,9 @@ app.post("/login",async (req,res)=>{
     return
   }
 })
-
+app.post("/",async (req,res)=>{
+  res.send("hello world")
+})
 app.post("/signup",async (req,res)=>{
   const {mail,password}= req.body;
   // console.log(typeof(username),password)
