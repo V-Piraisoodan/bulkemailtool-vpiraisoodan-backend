@@ -4,11 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-<<<<<<< HEAD
-# package-lock.json
-=======
-
->>>>>>> 6d565d900cf29383fc575ee64b930c3e6dd5ca8e
 # testing
 /coverage
 

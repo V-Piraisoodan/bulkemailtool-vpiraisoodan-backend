@@ -72,7 +72,6 @@ app.post("/login",async (req,res)=>{
     return
   }
 })
-
 app.post("/signup",async (req,res)=>{
   const {mail,password}= req.body;
   // console.log(typeof(username),password)
@@ -81,10 +80,16 @@ app.post("/signup",async (req,res)=>{
        .collection("users")
        .find({mail:mail})
        .toArray();
+  // console.log(finduser[0].username)
+  // const verify = finduser[0].username
   if(finduser[0]){
     res.status(400).send({msg:"The user is already exists"})
     return
   }
+  // if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(password)){
+  //   res.status(401).send({msg:"Password pattern did not match"})
+  //   return
+  // }
   else{
   const hashedpassword = await genpassword(password)
   // console.log("hello",password,hashedpassword)
@@ -97,8 +102,6 @@ app.post("/signup",async (req,res)=>{
  }
 
 })
-
-
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
@@ -111,3 +114,4 @@ async function genpassword (password)
   // console.log(hashedpassword)
   return hashedpassword
 }
+// genpassword();
