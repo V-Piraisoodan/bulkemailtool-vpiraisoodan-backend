@@ -33,7 +33,7 @@ const port = process.env.PORT || 5000;
 // SEND API
 
 app.get("/",(req,res)=>{
-  res.send("hi guys")
+  res.send("hello guys")
 })
 
 app.post("/send", auth,async (req, res) => {
